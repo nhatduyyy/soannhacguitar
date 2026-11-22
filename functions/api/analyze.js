@@ -43,7 +43,7 @@ export async function onRequestPost({request,env}){
    {text:INSTRUCTION+'\nĐiệu đang chọn: '+rhythm+'; cách chơi tham khảo: '+patterns.join(' | ')+'\nHãy đọc ảnh và trả về JSON.'},
    {inline_data:{mime_type:match[1],data:match[2]}}
   ]}],generationConfig:{temperature:0.1,responseMimeType:'application/json',maxOutputTokens:8192}};
-  const model=env.GEMINI_MODEL||'gemini-3.6-flash';
+  const model=env.GEMINI_MODEL||'gemini-2.5-flash';
   if(/^gemini-3[.\-]/.test(model))aiRequest.generationConfig.thinkingConfig={thinkingLevel:'low'};
   const response=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{
    method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':env.GEMINI_API_KEY},body:JSON.stringify(aiRequest),signal:AbortSignal.timeout(60000)
