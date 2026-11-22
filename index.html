@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guitar Song Editor | Soạn giáo án đúng mẫu Word</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#172133;background:#f3f5f9;--stroke:#e0e5ec;--blue:#315fe7;--text:#182237}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer;transition:background .15s,transform .15s}button:disabled{opacity:.45;cursor:not-allowed}button:active:not(:disabled){transform:translateY(1px)}
+header{height:78px;background:#101d35;color:white;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:12px;background:#4777f3;display:grid;place-items:center;font-size:26px}.brand h1{font-size:18px;letter-spacing:-.4px;margin:0}.brand p{font-size:12px;color:#aab8d5;margin:3px 0 0}.header-right{display:flex;align-items:center;gap:9px;font-size:12px;color:#d6deef}.dot{height:7px;width:7px;background:#51d69d;border-radius:50%}
+main{display:grid;grid-template-columns:360px minmax(0,1fr);gap:22px;max-width:1680px;margin:0 auto;padding:22px;align-items:start}.panel{background:#fff;border:1px solid var(--stroke);border-radius:14px;box-shadow:0 4px 18px #263c5d08}.sidebar{padding:22px;max-height:calc(100vh - 108px);overflow-y:auto;position:sticky;top:15px}.sidebar h2{font-size:15px;margin:0 0 14px}.minor{margin:0 0 14px;color:#6a7790;font-size:12px;line-height:1.6}.group{margin-bottom:14px}.field-label{display:block;font-size:12px;font-weight:750;margin:0 0 6px;color:#33415d}.field,.area{width:100%;padding:10px 11px;border:1px solid #d5dde9;border-radius:8px;outline:none;color:#1d2b43;background:#fff;font-size:13px}.field:focus,.area:focus{border-color:#668df2;box-shadow:0 0 0 3px #668df222}.area{resize:vertical;min-height:228px;line-height:1.65}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.divider{height:1px;background:#edf0f5;margin:21px 0}.tip{border-radius:9px;background:#f3f6fe;padding:11px 12px;font-size:12px;line-height:1.65;color:#586781}.tip strong{color:#2b4888}.tiny{font-size:11px;color:#6c7a91;line-height:1.55}.btn{background:var(--blue);color:#fff;border:1px solid transparent;padding:10px 12px;border-radius:9px;font-size:12px;font-weight:750;white-space:nowrap}.btn.light{background:#eff3fb;color:#294369;border-color:#e0e7f2}.btn.outline{background:#fff;color:#3a506f;border-color:#d7e0ec}.btn.small{padding:8px 10px}.btn:hover{filter:brightness(.98)}.buttons{display:flex;flex-wrap:wrap;gap:8px}.buttons .btn.grow{flex:1}
+.workspace{min-width:0}.workspace-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:#fff;border:1px solid var(--stroke);padding:13px 16px;border-radius:13px;margin-bottom:15px}.workspace-bar strong{font-size:14px}.workspace-bar small{font-size:11px;color:#6b7891}.workspace-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.zoom-label{font-size:11px;color:#7e8da5}.page-holder{overflow:auto;border:1px solid #e0e5ec;border-radius:14px;background:#e6eaf1;padding:28px 18px;box-shadow:inset 0 2px 8px #00000004}.page-shell{margin:0 auto;position:relative}.page-scale{width:210mm;display:flex;flex-direction:column;gap:18px;transform-origin:top left}.page{width:210mm;height:297mm;min-height:297mm;padding:15mm 25.4mm 10mm;background:#fff;box-shadow:0 10px 32px #1a31552a;position:relative;overflow:hidden;color:#000;font-family:Montserrat,Arial,sans-serif}.page *{font-family:Montserrat,Arial,sans-serif}
+.song-title{font-size:20pt;font-weight:700;text-align:center;line-height:1.25;margin:0 0 8pt;text-transform:uppercase}.song-author{font-size:14pt;font-weight:700;font-style:italic;text-align:right;line-height:1.1;margin-bottom:8pt}.song-meta{font-size:14pt;font-weight:700;font-style:italic;text-align:center;line-height:1.2;margin-bottom:13pt}.pattern-title{font-size:14pt;font-weight:700;line-height:1.25;margin:10pt 0 10pt}.pattern-tokens{color:#0066ff}.ai-section{background:linear-gradient(145deg,#f8faff,#f1f6ff);border:1px solid #dce6ff;border-radius:12px;padding:16px;margin-top:20px}.ai-head{display:flex;align-items:center;gap:9px}.ai-head h2{margin:0 0 8px}.ai-mark{color:#305cdd;font-size:22px}.file-drop{background:#fff;border:1.5px dashed #a8bce9;border-radius:12px;display:flex;flex-direction:column;gap:6px;text-align:center;padding:22px 12px;cursor:pointer;font-size:12px;color:#3150a4}.file-drop:hover,.file-drop.drag-over{background:#eef4ff;border-color:#517bf1}.file-ico{font-size:25px}.file-drop small{font-size:11px;color:#74829a}.full{width:100%}.ai-progress{font-size:12px;line-height:1.55;color:#526887;padding:9px 0;min-height:29px}.ai-progress.error{color:#b42318}.ai-progress.good{color:#157347}.photo-queue{margin-top:11px;display:flex;flex-direction:column;gap:8px;max-height:410px;overflow-y:auto}.photo-item{background:#fff;border:1px solid #e0e8f3;border-radius:9px;padding:8px;display:flex;align-items:center;gap:9px}.photo-item img{width:60px;height:52px;object-fit:contain;background:#f4f6fa;border:1px solid #e6ebf3;border-radius:5px;flex-shrink:0}.photo-detail{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px}.photo-detail strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.photo-detail small{font-size:10px;color:#6f7f97}.photo-actions{display:flex;gap:3px}.photo-actions .btn{padding:4px 6px;font-size:12px;min-width:22px}.photo img{border:1px solid #dce5f6}.lyric-positioned{position:relative;overflow:visible}.lyric-word{position:absolute;top:0;white-space:nowrap}.song-row{break-inside:avoid;page-break-inside:avoid;margin:0 0 9px;min-height:0}.lyric-line{font-size:16pt;font-weight:400;line-height:1.24;white-space:pre;min-height:27px}.lyric-line .chord{color:#ee0000;font-weight:700}.lyric-line .verse-prefix{font-weight:700}.note-track{position:relative;height:25px;margin-top:8px;user-select:none}.note{position:absolute;top:0;font-size:12pt;font-style:italic;font-weight:400;line-height:23px;white-space:nowrap;cursor:grab;touch-action:none;color:#000}.note:hover,.note.selected{border-radius:3px;outline:1px solid #4777f3;outline-offset:3px}.note.dragging{cursor:grabbing;color:#365fe3}.note-overflow{color:#c14b2e}.page-guides .song-row:hover{background:#f7f9ff}.page-guides .note-track:before{content:"";position:absolute;inset:18px 0 auto;height:1px;background:#edf0f6;pointer-events:none}.page-guides .song-row:hover .note-track:before{background:#d5e1fd}
+.statusline{font-size:12px;color:#687791;min-height:20px;margin:13px 2px 0}.selected-panel{border:1px solid #dfe7f5;background:#f7f9ff;border-radius:10px;padding:12px;margin-top:14px}.selected-panel label{font-size:12px;font-weight:700;display:block;margin-bottom:6px}.selected-panel .two{grid-template-columns:1fr 105px}.selected-panel .buttons{margin-top:9px}.photo img{max-width:100%;max-height:240px;display:block;border-radius:7px;margin-top:9px}.hidden{display:none!important}.kbd{display:inline-block;padding:1px 5px;border:1px solid #cad4e2;border-radius:4px;background:#fff;color:#4f6281;font-size:10px}details summary{font-size:12px;font-weight:700;color:#405678;cursor:pointer}details{margin-top:16px}code{background:#eef2f8;padding:2px 4px;border-radius:3px;font-size:11px}
+@media(max-width:1250px){main{grid-template-columns:320px minmax(0,1fr);gap:14px;padding:14px}.sidebar{padding:18px}}@media(max-width:940px){main{grid-template-columns:1fr}.sidebar{position:static;max-height:none}.page-holder{padding:12px}.header-right{display:none}}@media print{@page{size:A4;margin:0}html,body{background:white!important}header,.sidebar,.workspace-bar,.statusline,.selected-panel{display:none!important}main{padding:0;display:block;max-width:none}.workspace,.page-holder{overflow:visible!important;display:block!important;padding:0!important;border:0!important;background:#fff!important;box-shadow:none!important}.page-shell{width:210mm!important;height:auto!important;margin:0!important}.page-scale{transform:none!important;margin:0!important;width:210mm!important;height:auto!important;gap:0!important}.page{box-shadow:none!important;margin:0!important;transform:none!important;min-height:297mm!important;height:297mm!important;width:210mm!important;overflow:visible;break-after:page;page-break-after:always}.page:last-child{break-after:auto;page-break-after:auto}.page-guides .song-row:hover{background:none}.page-guides .note-track:before{display:none}.note{outline:0!important}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo" aria-hidden="true">♫</div><div><h1>Guitar Song Editor</h1><p>Soạn giáo án Guitar • Đúng định dạng BALLAD_24.docx</p></div></div><div class="header-right"><i class="dot"></i><span>Montserrat · Khổ A4 · Xuất Word .docx</span></div></header>
+<main>
+ <aside class="panel sidebar">
+  <h2>Thông tin bài hát</h2>
+  <div class="group"><label class="field-label" for="title">Tên bài hát</label><input class="field" id="title" value=""></div>
+  <div class="group"><label class="field-label" for="author">Tác giả</label><input class="field" id="author" value=""></div>
+  <div class="two"><div class="group"><label class="field-label" for="rhythm">Điệu</label><select class="field" id="rhythm"></select></div><div class="group"><label class="field-label" for="tone">Tone</label><input class="field" id="tone" value=""></div></div>
+  <div class="group"><label class="field-label" for="pattern">Cách chơi mặc định</label><select class="field" id="pattern"></select></div>
+  <div class="tip"><strong>Đã khóa định dạng theo mẫu:</strong> Montserrat • Tên bài 20pt • Lời 16pt • Cách chơi 12pt • Hợp âm đỏ • Cách chơi xanh ở tiêu đề.</div>
+  <div class="divider"></div>
+  <h2>Lời bài hát và hợp âm</h2>
+  <p class="minor">Ô này được để trống khi mở trang. Sau khi nhận dạng ảnh thành công, lời và hợp âm sẽ tự xuất hiện tại đây. Bạn cũng có thể tự nhập lời nếu muốn; dùng <code>@1</code>, <code>@2</code> để đổi cách chơi theo đoạn.</p>
+  <div class="group"><label class="field-label" for="lyrics">Nội dung bài hát</label><textarea class="area" id="lyrics" spellcheck="false"></textarea></div>
+  <div class="buttons"><button class="btn grow" id="apply">Cập nhật bản soạn</button><button class="btn outline" id="clearSong" type="button">Bài mới / Xóa nội dung</button></div>
+  <div class="divider"></div>
+  <div class="ai-section" id="aiSection">
+   <div class="ai-head"><span class="ai-mark">✦</span><h2>Tự động soạn từ ảnh</h2></div>
+   <p class="minor">Tải nhiều ảnh theo đúng thứ tự bài hát: ảnh 1 → ảnh 2 → ảnh 3… AI sẽ đọc lần lượt và tự đưa lời, hợp âm, cách chơi vào ô bên trên <strong>sau khi nhận dạng hoàn tất</strong>.</p>
+   <label class="file-drop" for="photo" id="dropZone"><span class="file-ico">↥</span><strong>Thêm ảnh theo thứ tự</strong><small>Chọn nhiều ảnh cùng lúc · PNG, JPG, WEBP · mỗi ảnh tối đa 8 MB</small><input id="photo" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></label>
+   <div id="photoQueue" class="photo-queue" aria-label="Danh sách ảnh đã tải lên theo thứ tự"></div>
+   <div class="group" style="margin:12px 0"><label class="field-label" for="importMode">Khi nhận dạng</label><select class="field" id="importMode"><option value="replace">Tạo bài mới từ ảnh</option><option value="append">Nối vào cuối bài hiện có</option></select></div>
+   <button class="btn grow full" type="button" id="analyzePhoto" disabled>✦ Nhận dạng tất cả ảnh theo thứ tự</button>
+   <div class="ai-progress" id="aiProgress" role="status" aria-live="polite">Chưa chọn ảnh. Ô lời bài hát đang trống.</div>
+   <p class="tiny" style="margin:10px 0 0">Cần kết nối Gemini qua Cloudflare Pages Function và thiết lập bí mật <code>GEMINI_API_KEY</code>. Ảnh được gửi cho dịch vụ AI khi bạn nhấn nhận dạng; hãy kiểm tra kết quả trước khi xuất Word.</p>
+  </div>
+  <details><summary>Thêm một cách chơi cho điệu hiện tại</summary><div class="group" style="margin-top:10px"><input id="custom" class="field" placeholder="Ví dụ: B 3 (21) 3"><button class="btn light" id="addPattern" style="margin-top:8px">+ Thêm cách chơi</button></div></details>
+  <div class="divider"></div>
+  <h2>Căn chỉnh cách chơi</h2>
+  <p class="minor">Kéo ký hiệu <em>Bass, 3, (21)...</em> theo chiều ngang để đặt dưới chữ hoặc khoảng trống. Nhấn đúp vào vùng bên dưới một dòng để thêm ký hiệu tại vị trí đó.</p>
+  <div class="buttons"><button class="btn light grow" id="suggest">Gợi ý vị trí (ước lượng)</button><button class="btn outline" id="addNote">+ Thêm ký hiệu</button></div>
+  <div id="selectedPanel" class="selected-panel hidden"><label for="noteValue">Ký hiệu đang chọn</label><div class="two"><input id="noteValue" class="field" placeholder="Bass"><input id="noteX" class="field" type="number" min="0" max="601" step="1" title="Vị trí ngang (px)"></div><div class="buttons"><button id="updateNote" class="btn small light">Cập nhật</button><button id="deleteNote" class="btn small outline">Xóa ký hiệu</button></div><p class="tiny" style="margin:9px 0 0">Dùng phím <span class="kbd">←</span> / <span class="kbd">→</span> để dịch 1px.</p></div>
+  <div class="divider"></div>
+  <h2>Lưu và xuất file</h2><div class="buttons"><button id="export" class="btn grow">Xuất Word (.docx)</button><button id="print" class="btn light">In / PDF</button></div><div class="buttons" style="margin-top:9px"><button id="save" class="btn outline grow">Lưu bản nháp</button><button id="load" class="btn outline grow">Mở bản nháp</button></div>
+  <p class="tiny" style="margin-top:10px">File Word xuất ra là DOCX thực, có font Montserrat và lề A4 như mẫu. Để Word hiển thị đúng Montserrat trên máy, máy cần cài font này.</p>
+ </aside>
+ <section class="workspace">
+  <div class="workspace-bar"><div><strong>Bản xem trước trang Word</strong><br><small>A4 · 210 × 297 mm · Lề 2,54 cm · Font Montserrat</small></div><div class="workspace-actions"><button id="undo" class="btn outline small" disabled title="Ctrl + Z">↶ Hoàn tác</button><button id="redo" class="btn outline small" disabled title="Ctrl + Shift + Z">↷ Làm lại</button><label class="zoom-label" for="zoom">Thu phóng</label><select id="zoom" class="field" style="width:105px;padding:8px"><option value="1">100%</option><option value="0.85" selected>85%</option><option value="0.7">70%</option><option value="0.6">60%</option></select><button id="guides" class="btn light small">Ẩn đường căn</button></div></div>
+  <div class="page-holder" id="pageHolder"><div class="page-shell" id="pageShell"><div class="page-scale" id="pageScale"></div></div></div>
+  <div class="statusline" id="status">Bạn có thể chỉnh trực tiếp vị trí từng ký hiệu trong bản xem trước.</div>
+ </section>
+</main>
+<script>
+'use strict';
+const BASE_LIBRARY={
+  Valse:['B (321) (321)','Bùm Chat Chat'],
+  Ballad:['B 3 (21) 3','X n X XL'],
+  Boston:['B 3 (21) 3 (21) 3','Bùm Chat Chat'],
+  Bolero:['B 321 (321) B (321) Bùm (321)','Bum 321 Chat Bum Chat Bum Chat'],
+  Slowrock:['B 3 2 1 2 3','X XLX X XLX']
+};
+let library=JSON.parse(JSON.stringify(BASE_LIBRARY));
+const $=id=>document.getElementById(id);
+const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const escapeXML=escapeHTML;
+const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+let rows=[],selected=null,showGuides=true,zoom=0.85;
+const measureCanvas=document.createElement('canvas');const context=measureCanvas.getContext('2d');
+function measure(s,style='italic 12pt Montserrat'){context.font=style;return context.measureText(s).width;}
+function notesFromText(noteLine){const out=[];if(!noteLine)return out;for(const m of noteLine.replace(/\t/g,'        ').matchAll(/\S+/g)){const left=noteLine.replace(/\t/g,'        ').slice(0,m.index);out.push({text:m[0],x:Math.round(clamp(measure(left),0,593))});}return out;}
+function fillRhythms(){const old=$('rhythm').value;$('rhythm').innerHTML=Object.keys(library).map(x=>`<option value="${escapeHTML(x)}">${escapeHTML(x)}</option>`).join('');$('rhythm').value=Object.hasOwn(library,old)?old:'Ballad';fillPatterns();}
+function fillPatterns(){const v=$('pattern').value;$('pattern').innerHTML=library[$('rhythm').value].map((x,i)=>`<option value="${i}">Cách chơi ${i+1}: ${escapeHTML(x)}</option>`).join('');$('pattern').value=library[$('rhythm').value][+v]?v:'0';}
+function lyricsMarkup(s){const re=/(\[[^\]\r\n]+\])/g;return String(s).split(re).map((frag,i)=>i%2?`<span class="chord">${escapeHTML(frag)}</span>`:escapeHTML(frag).replace(/^(\d+\.|ĐK:)/,m=>`<strong class="verse-prefix">${m}</strong>`)).join('')||'&nbsp;';}
+function labelFor(n){const pattern=library[$('rhythm').value]?.[n]??'';return `Cách chơi ${n+1}: `+pattern;}
+function readSource(){return $('lyrics').value.split(/\r?\n/);}
+function sourceToRows(retain=true){const prior=retain?rows:[];const taken=new Set();let part=+$('pattern').value||0;
+ const result=[];let n=0;for(const line of readSource()){
+  const match=line.trim().match(/^@([1-9]\d*)$/);
+  if(match){part=clamp(+match[1]-1,0,library[$('rhythm').value].length-1);result.push({type:'section',pattern:part});continue;}
+  if(!line.trim())continue;
+  let old=prior.find((r,j)=>!taken.has(j)&&r.type==='lyric'&&r.text===line&&r.pattern===part);
+  if(!old)old=prior.find((r,j)=>!taken.has(j)&&r.type==='lyric'&&r.text===line);
+  if(old){taken.add(prior.indexOf(old));result.push({...old,pattern:part});}
+  else result.push({type:'lyric',pattern:part,text:line,notes:[]});
+  n++;
+ }
+ if(n && result[0]?.type!=='section')result.unshift({type:'section',pattern:+$('pattern').value||0});
+ rows=result;selected=null;render();recordHistory();setStatus(`Đã cập nhật ${n} dòng lời. Có thể thêm và căn cách chơi trực tiếp.`);
+}
+function paginateRows(){
+ const contentLimit=1025, firstHeader=127, rowH=69, sectionH=48;
+ let pages=[{head:true,items:[]}],remaining=contentLimit-firstHeader;
+ function nextPage(){pages.push({head:false,items:[]});remaining=contentLimit;}
+ for(let i=0;i<rows.length;){
+  if(rows[i].type==='section'){
+   let j=i+1;while(j<rows.length&&rows[j].type!=='section')j++;
+   const groupHeight=sectionH+(j-i-1)*rowH;
+   if(groupHeight>remaining&&pages[pages.length-1].items.length)nextPage();
+   for(let k=i;k<j;k++){
+    const need=rows[k].type==='section'?sectionH:rowH;
+    if(need>remaining&&pages[pages.length-1].items.length)nextPage();
+    pages[pages.length-1].items.push({item:rows[k],index:k});remaining-=need;
+   }
+   i=j;
+  }else{
+   if(rowH>remaining&&pages[pages.length-1].items.length)nextPage();
+   pages[pages.length-1].items.push({item:rows[i],index:i});remaining-=rowH;i++;
+  }
+ }
+ return pages;
+}
+function render(){
+ const holder=$('pageScale'),title=$('title').value,author=$('author').value,rhythm=$('rhythm').value,tone=$('tone').value;
+ const pages=paginateRows();
+ const hasSong=Boolean(title.trim()||author.trim()||tone.trim()||rows.some(r=>r.type==='lyric'));
+ holder.innerHTML=pages.map((page,pi)=>`<div class="page${showGuides?' page-guides':''}" data-page="${pi}">${page.head&&hasSong?`${title.trim()?`<div class="song-title">${escapeHTML(title)}</div>`:''}${author.trim()?`<div class="song-author">${escapeHTML(author)}</div>`:''}<div class="song-meta">Điệu ${escapeHTML(rhythm)}${tone?`, Tone ${escapeHTML(tone)}`:''}</div>`:''}${page.items.map(({item:r,index:i})=>r.type==='section'?`<div class="pattern-title" data-section="${i}">Cách chơi ${r.pattern+1}: <span class="pattern-tokens">${escapeHTML(library[rhythm]?.[r.pattern]||'')}</span></div>`:`<div class="song-row" data-row="${i}"><div class="lyric-line${r.positionedWords?.length?' lyric-positioned':''}">${r.positionedWords?.length?r.positionedWords.map(w=>`<span class="lyric-word" style="left:${clamp(w.px,0,601)}px">${w.prefix?`<span class="chord">${escapeHTML(w.prefix)}</span> `:''}${escapeHTML(w.text)}</span>`).join(''):lyricsMarkup(r.text)}</div><div class="note-track" data-row="${i}" title="Nhấp đúp để thêm ký hiệu">${(r.notes||[]).map((n,j)=>`<span role="button" tabindex="0" aria-label="${escapeHTML(n.text)}" class="note${selected?.row===i&&selected?.note===j?' selected':''}${n.x>585?' note-overflow':''}" data-row="${i}" data-note="${j}" style="left:${clamp(n.x,0,601)}px">${escapeHTML(n.text)}</span>`).join('')}</div></div>`).join('')}</div>`).join('');
+ holder.querySelectorAll('.note').forEach(el=>{el.addEventListener('pointerdown',dragNote);el.addEventListener('click',e=>{e.stopPropagation();chooseNote(+el.dataset.row,+el.dataset.note)});});
+ holder.querySelectorAll('.note-track').forEach(el=>el.addEventListener('dblclick',e=>{if(e.target.closest('.note'))return;const rect=el.getBoundingClientRect();const x=clamp(Math.round((e.clientX-rect.left)/zoom),0,590);addNoteAt(+el.dataset.row,x);}));
+ showSelected();setPageScale();
+}
+function setPageScale(){zoom=parseFloat($('zoom').value)||1;const scaled=$('pageScale'),shell=$('pageShell');scaled.style.transform=`scale(${zoom})`;shell.style.width=(scaled.offsetWidth*zoom)+'px';shell.style.height=(scaled.scrollHeight*zoom)+'px';}
+
+function chooseNote(row,note){if(!rows[row]?.notes?.[note])return;selected={row,note};$('noteValue').value=rows[row].notes[note].text;$('noteX').value=rows[row].notes[note].x;showSelected();sheetHighlight();}
+function showSelected(){$('selectedPanel').classList.toggle('hidden',!selected||!rows[selected.row]?.notes?.[selected.note]);}
+function sheetHighlight(){$('pageScale').querySelectorAll('.note').forEach(el=>el.classList.toggle('selected',selected?.row===+el.dataset.row&&selected?.note===+el.dataset.note));}
+function addNoteAt(row,x){if(rows[row]?.type!=='lyric')return;const text=$('noteValue').value.trim()||'Bass';rows[row].notes.push({text,x});const index=rows[row].notes.length-1;render();recordHistory();chooseNote(row,index);setStatus(`Đã thêm ${text}. Kéo để căn đúng vị trí trong mẫu.`);}
+function dragNote(e){e.preventDefault();e.stopPropagation();const el=e.currentTarget,row=+el.dataset.row,note=+el.dataset.note;chooseNote(row,note);const start=e.clientX,base=rows[row].notes[note].x;el.setPointerCapture(e.pointerId);el.classList.add('dragging');
+ el.onpointermove=ev=>{const nx=Math.round(clamp(base+(ev.clientX-start)/zoom,0,590));rows[row].notes[note].x=nx;el.style.left=nx+'px';$('noteX').value=nx;};
+ el.onpointerup=()=>{el.onpointermove=null;el.onpointerup=null;el.classList.remove('dragging');recordHistory();};}
+function setStatus(text){$('status').textContent=text;}
+function suggestNotes(){const p=+$('pattern').value||0;const ok=confirm('Đây chỉ là gợi ý phân bố ký hiệu theo chiều dài dòng, KHÔNG phải nhận dạng nhịp thực tế. Các ký hiệu hiện tại sẽ bị thay thế. Tiếp tục?');if(!ok)return;
+ const maxWidth=565;for(const r of rows){if(r.type!=='lyric')continue;const tokens=(library[$('rhythm').value]?.[r.pattern]||library[$('rhythm').value]?.[p]||'').split(/\s+/).filter(Boolean);if(!tokens.length)continue;const visible=r.text.replace(/\[[^\]]+\]/g,'');const estimated=measure(r.text,'16pt Montserrat');const count=Math.max(1,Math.round(clamp(estimated/280,1,3)));const total=tokens.length*count;let notes=[];for(let i=0;i<total;i++)notes.push({text:tokens[i%tokens.length],x:Math.round(i*Math.min(maxWidth,Math.max(300,estimated+70))/Math.max(1,total-1))});r.notes=notes;}
+ selected=null;render();recordHistory();setStatus('Đã gợi ý vị trí. Bạn cần tự căn lại theo nhịp và ảnh gốc trước khi xuất Word.');}
+let historyStack=[],historyCursor=-1,lastMergeKey='',lastMergeTime=0,historyRestoring=false;
+function recordHistory(mergeKey=''){
+ if(historyRestoring)return;
+ const json=JSON.stringify(snapshot());if(historyCursor>=0&&historyStack[historyCursor]===json)return;
+ const now=Date.now(),shouldMerge=!!mergeKey&&lastMergeKey===mergeKey&&now-lastMergeTime<750&&historyCursor===historyStack.length-1&&historyCursor>0;
+ if(shouldMerge)historyStack[historyCursor]=json;
+ else{historyStack=historyStack.slice(0,historyCursor+1);historyStack.push(json);historyCursor++;if(historyStack.length>100){historyStack.shift();historyCursor--;}}
+ lastMergeKey=mergeKey;lastMergeTime=now;updateHistoryButtons();
+}
+function updateHistoryButtons(){$('undo').disabled=historyCursor<=0;$('redo').disabled=historyCursor>=historyStack.length-1;}
+function moveInHistory(offset){
+ const next=historyCursor+offset;if(next<0||next>=historyStack.length)return;
+ historyCursor=next;historyRestoring=true;try{restore(JSON.parse(historyStack[next]));}finally{historyRestoring=false;}
+ lastMergeKey='';updateHistoryButtons();setStatus(offset<0?'Đã hoàn tác (Ctrl + Z).':'Đã làm lại (Ctrl + Shift + Z).');
+}
+function snapshot(){return{title:$('title').value,author:$('author').value,rhythm:$('rhythm').value,tone:$('tone').value,pattern:$('pattern').value,lyrics:$('lyrics').value,library,rows};}
+function restore(data){if(!data)return;library=data.library&&typeof data.library==='object'?data.library:JSON.parse(JSON.stringify(BASE_LIBRARY));fillRhythms();$('rhythm').value=Object.hasOwn(library,data.rhythm)?data.rhythm:'Ballad';fillPatterns();$('pattern').value=String(data.pattern||'0');for(const k of ['title','author','tone','lyrics'])$(k).value=data[k]||'';rows=Array.isArray(data.rows)?data.rows:[];selected=null;render();}
+// Write a real .docx package in the browser using OOXML and an uncompressed ZIP archive.
+// All formatting, margins and font sizes below are taken from BALLAD_24.docx.
+const wordFont=`<w:rFonts w:ascii="Montserrat" w:hAnsi="Montserrat" w:eastAsia="Montserrat" w:cs="Montserrat"/>`;
+const wordRun=(s,{size=32,bold=false,italic=false,color=null}={})=>`<w:r><w:rPr>${wordFont}<w:sz w:val="${size}"/><w:szCs w:val="${size}"/>${bold?'<w:b/>':''}${italic?'<w:i/>':''}${color?`<w:color w:val="${color}"/>`:''}</w:rPr><w:t xml:space="preserve">${escapeXML(s)}</w:t></w:r>`;
+const wordParagraph=(body,{align='left',after=0,before=0,keepNext=false,tabs=[],line=240}={})=>`<w:p><w:pPr><w:jc w:val="${align}"/><w:spacing w:before="${before}" w:after="${after}" w:line="${line}" w:lineRule="auto"/>${keepNext?'<w:keepNext/>':''}${tabs.length?`<w:tabs>${tabs.map(t=>`<w:tab w:val="left" w:pos="${t}"/>`).join('')}</w:tabs>`:''}</w:pPr>${body||wordRun(' ')}</w:p>`;
+function lyricWordRuns(text){const fragments=String(text).split(/(\[[^\]\r\n]+\])/g);return fragments.map((s,i)=>{if(i%2)return wordRun(s,{size:32,bold:true,color:'EE0000'});const prefix=s.match(/^(\d+\.|ĐK:)/);if(prefix)return wordRun(prefix[0],{size:32,bold:true})+wordRun(s.slice(prefix[0].length),{size:32});return wordRun(s,{size:32});}).join('');}
+function positionedLyricsWordParagraph(row){
+ const words=[...(row.positionedWords||[])].sort((a,b)=>a.px-b.px), tabs=[], runs=[]; let cursor=0;
+ for(const w of words){const x=Math.round(clamp(w.px,0,601)*11);const txt=(w.prefix?w.prefix+' ':'')+w.text;
+  const pos=Math.max(x,cursor+40);if(pos>0){tabs.push(pos);runs.push('<w:r><w:tab/></w:r>');}
+  if(w.prefix){runs.push(wordRun(w.prefix,{size:32,bold:true,color:'EE0000'}));runs.push(wordRun(' ',{size:32}));}
+  runs.push(wordRun(w.text,{size:32}));cursor=pos+Math.round(measure(txt,'16pt Montserrat')*15);
+ }
+ return wordParagraph(runs.join(''),{tabs,after:0,keepNext:true});
+}
+function notesWordParagraph(notes){if(!notes?.length)return wordParagraph(wordRun(' ',{size:24,italic:true}),{after:210,before:85});
+ const sorted=[...notes].sort((a,b)=>a.x-b.x),tabs=[],runs=[];let cursor=0;
+ for(let i=0;i<sorted.length;i++){const n=sorted[i];const rawPos=Math.round(clamp(n.x,0,600)*11);const width=Math.round(Math.max(10,measure(n.text))*15);let pos=Math.max(rawPos,cursor+155);
+ if(i===0&&n.x<3){pos=0;}else{tabs.push(pos);runs.push('<w:r><w:tab/></w:r>');}
+ runs.push(wordRun(n.text,{size:24,italic:true}));cursor=pos+width;
+ }
+ return wordParagraph(runs.join(''),{after:210,before:85,tabs});}
+function buildDocumentXML(){const p=[];
+ p.push(wordParagraph(wordRun($('title').value.toUpperCase(),{size:40,bold:true}),{align:'center',after:160}));
+ p.push(wordParagraph(wordRun($('author').value,{size:28,bold:true,italic:true}),{align:'right',after:160}));
+ p.push(wordParagraph(wordRun(`Điệu ${$('rhythm').value}${$('tone').value?`, Tone ${$('tone').value}`:''}`,{size:28,bold:true,italic:true}),{align:'center',after:270}));
+ for(const r of rows){if(r.type==='section'){
+   p.push(wordParagraph(wordRun(`Cách chơi ${r.pattern+1}: `,{size:28,bold:true})+wordRun(library[$('rhythm').value]?.[r.pattern]||'',{size:28,bold:true,color:'0066FF'}),{before:130,after:150,keepNext:true}));
+ }else{
+   p.push(r.positionedWords?.length?positionedLyricsWordParagraph(r):wordParagraph(lyricWordRuns(r.text),{after:0,keepNext:true}));
+   p.push(notesWordParagraph(r.notes));
+ }}
+ return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${p.join('')}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="851" w:right="1440" w:bottom="567" w:left="1440" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+}
+function buildStylesXML(){return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr>${wordFont}<w:sz w:val="24"/><w:szCs w:val="24"/><w:lang w:val="vi-VN"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style></w:styles>`;}
+function crc32(bytes){let c=0xffffffff;for(let i=0;i<bytes.length;i++){c^=bytes[i];for(let j=0;j<8;j++)c=(c>>>1)^((c&1)?0xedb88320:0);}return (c^0xffffffff)>>>0;}
+function makeZip(files){const encoder=new TextEncoder(),parts=[],central=[];let offset=0;const u16=(dv,p,v)=>dv.setUint16(p,v,true),u32=(dv,p,v)=>dv.setUint32(p,v,true);
+ for(const [name,data] of Object.entries(files)){
+  const n=encoder.encode(name),b=encoder.encode(data),crc=crc32(b),head=new Uint8Array(30+n.length),dv=new DataView(head.buffer);u32(dv,0,0x04034b50);u16(dv,4,20);u16(dv,6,0x0800);u16(dv,8,0);u32(dv,14,crc);u32(dv,18,b.length);u32(dv,22,b.length);u16(dv,26,n.length);head.set(n,30);parts.push(head,b);
+  const cb=new Uint8Array(46+n.length),cd=new DataView(cb.buffer);u32(cd,0,0x02014b50);u16(cd,4,20);u16(cd,6,20);u16(cd,8,0x0800);u16(cd,10,0);u32(cd,16,crc);u32(cd,20,b.length);u32(cd,24,b.length);u16(cd,28,n.length);u32(cd,42,offset);cb.set(n,46);central.push(cb);offset+=head.length+b.length;
+ }
+ const start=offset;for(const c of central){parts.push(c);offset+=c.length;}
+ const foot=new Uint8Array(22),end=new DataView(foot.buffer);u32(end,0,0x06054b50);u16(end,8,central.length);u16(end,10,central.length);u32(end,12,offset-start);u32(end,16,start);parts.push(foot);return new Blob(parts,{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+function exportDOCX(){if(!rows.some(r=>r.type==='lyric')){alert('Chưa có lời bài hát. Hãy tải ảnh và nhận dạng hoặc nhập lời trước khi xuất Word.');return;}const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>`;
+ const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>`;
+ const docRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+ const core=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:title>${escapeXML($('title').value)}</dc:title><dc:creator>Guitar Song Editor</dc:creator></cp:coreProperties>`;
+ const blob=makeZip({'[Content_Types].xml':contentTypes,'_rels/.rels':rels,'word/document.xml':buildDocumentXML(),'word/_rels/document.xml.rels':docRels,'word/styles.xml':buildStylesXML(),'docProps/core.xml':core});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=($('title').value||'guitar-song').replace(/[\\/:*?"<>|]/g,'_')+'.docx';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);setStatus('Đã tạo file Word .docx theo font, cỡ chữ và lề của BALLAD_24.docx.');}
+// Multiple image transcription: the Cloudflare Pages Function sends each picture to Gemini.
+// Queue is ordered; no image is analyzed until the user presses the button.
+let photoQueue=[],photoCounter=0,analyzing=false;
+function imageMessage(text,kind=''){$('aiProgress').className='ai-progress '+kind;$('aiProgress').textContent=text;}
+function updatePhotoQueue(){
+ const root=$('photoQueue');root.replaceChildren();
+ photoQueue.forEach((item,index)=>{
+  const row=document.createElement('div');row.className='photo-item';
+  const pic=document.createElement('img');pic.src=item.url;pic.alt=`Ảnh số ${index+1}`;pic.loading='lazy';
+  const detail=document.createElement('div');detail.className='photo-detail';
+  const heading=document.createElement('strong');heading.textContent=`Ảnh ${index+1}: ${item.file.name}`;
+  const sub=document.createElement('small');sub.textContent=(item.file.size/1024/1024).toFixed(2)+' MB · Đọc theo thứ tự này';
+  detail.append(heading,sub);
+  const actions=document.createElement('div');actions.className='photo-actions';
+  const make=(label,title,disabled,handler)=>{const b=document.createElement('button');b.type='button';b.className='btn outline small';b.textContent=label;b.title=title;b.disabled=disabled||analyzing;b.addEventListener('click',handler);return b;};
+  actions.append(make('↑','Chuyển lên',index===0,()=>movePhoto(index,-1)),make('↓','Chuyển xuống',index===photoQueue.length-1,()=>movePhoto(index,1)),make('×','Xóa ảnh',false,()=>removePhoto(index)));
+  row.append(pic,detail,actions);root.append(row);
+ });
+ $('analyzePhoto').disabled=!photoQueue.length||analyzing;
+ $('photo').disabled=analyzing;
+}
+function addPhotos(files){
+ if(analyzing)return;
+ let added=0,invalid=0;
+ for(const file of files||[]){
+  if(!/^image\/(png|jpe?g|webp)$/.test(file.type)||file.size>8*1024*1024){invalid++;continue;}
+  photoQueue.push({id:++photoCounter,file,url:URL.createObjectURL(file)});added++;
+ }
+ updatePhotoQueue();
+ if(added)imageMessage(`Đã thêm ${added} ảnh. Hiện có ${photoQueue.length} ảnh; dùng ↑ ↓ để đổi thứ tự, sau đó nhấn “Nhận dạng tất cả ảnh theo thứ tự”.`+(invalid?` Bỏ qua ${invalid} ảnh không đúng loại hoặc quá 8 MB.`:''));
+ else if(invalid)imageMessage('Ảnh phải là PNG, JPG hoặc WEBP và không quá 8 MB mỗi ảnh.','error');
+}
+function movePhoto(index,direction){const other=index+direction;if(other<0||other>=photoQueue.length||analyzing)return;[photoQueue[index],photoQueue[other]]=[photoQueue[other],photoQueue[index]];updatePhotoQueue();}
+function removePhoto(index){if(analyzing)return;const [item]=photoQueue.splice(index,1);if(item)URL.revokeObjectURL(item.url);updatePhotoQueue();imageMessage(photoQueue.length?`Còn ${photoQueue.length} ảnh để nhận dạng.`:'Danh sách ảnh đã trống.');}
+function setupImageAnalyzer(){
+ const zone=$('dropZone');zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag-over')});
+ zone.addEventListener('dragleave',()=>zone.classList.remove('drag-over'));
+ zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');addPhotos(e.dataTransfer?.files)});
+ $('photo').addEventListener('change',e=>{addPhotos(e.target.files);e.target.value='';});
+ $('analyzePhoto').addEventListener('click',analyzePhotos);
+}
+function readAsDataURL(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Không đọc được ảnh.'));reader.readAsDataURL(file);});}
+async function analyzePhotos(){
+ if(!photoQueue.length||analyzing)return;
+ const pending=[...photoQueue],btn=$('analyzePhoto');analyzing=true;updatePhotoQueue();btn.textContent='Đang nhận dạng…';
+ const allRows=[];
+ try{
+  for(let i=0;i<pending.length;i++){
+   const file=pending[i].file;
+   imageMessage(`Đang nhận dạng ảnh ${i+1}/${pending.length}: ${file.name}. Nội dung bài hát sẽ hiện sau khi hoàn tất.`);
+   const dataUrl=await readAsDataURL(file);
+   const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:dataUrl,rhythm:$('rhythm').value,patterns:library[$('rhythm').value]})});
+   let json;try{json=await res.json()}catch{throw new Error('Máy chủ không trả về JSON. Cần triển khai thư mục functions/api trên Cloudflare Pages.');}
+   if(!res.ok)throw new Error(json?.error||('Lỗi HTTP '+res.status));
+   if(!Array.isArray(json.rows)||!json.rows.length)throw new Error('AI không đọc được dòng lời nào trong ảnh.');
+   allRows.push(...json.rows);
+  }
+  // No partial overwrite: only populate the lyrics input when all pictures succeeded.
+  const count=applyAnalysis({rows:allRows});recordHistory();
+  imageMessage(`Hoàn tất ${pending.length} ảnh theo thứ tự: đã nhập ${count} dòng lời và ${rows.reduce((n,r)=>n+(r.notes?.length||0),0)} ký hiệu. Hãy kiểm tra trước khi xuất Word.`,'good');
+ }catch(e){imageMessage(`Chưa thể xuất lời từ toàn bộ ảnh: ${e.message}. Nội dung cũ vẫn được giữ nguyên.`,'error');}
+ finally{analyzing=false;btn.textContent='✦ Nhận dạng tất cả ảnh theo thứ tự';updatePhotoQueue();}
+}
+function clampX(value){return clamp(Number.isFinite(+value)?+value:0,0,1000);}
+function cleanChord(value){return String(value||'').replace(/[\[\]]/g,'').trim().slice(0,16);}
+function cleanToken(value){return String(value||'').replace(/[\r\n\t]/g,' ').trim().slice(0,45);}
+// Preserve image coordinates and insert chords inline without guessing beat positions.
+// Calculate a shared x transform for words and notes, so they shift together.
+function layoutTranscription(source){
+ const words=(source.words||[]).filter(w=>cleanToken(w.text)).map(w=>({text:cleanToken(w.text),x:clampX(w.x)})).sort((a,b)=>a.x-b.x).slice(0,85);
+ if(!words.length)return null;
+ const chords=(source.chords||[]).map(c=>({name:cleanChord(c.name),beforeWord:clamp(Math.round(Number(c.beforeWord)||0),0,words.length-1),x:clampX(c.x)})).filter(c=>c.name).slice(0,24);
+ const grouped=new Map();for(const c of chords){if(!grouped.has(c.beforeWord))grouped.set(c.beforeWord,[]);grouped.get(c.beforeWord).push(c.name);}
+ const maxWidth=594;let output=[],right=0,ratio=.55;
+ // Choose the widest word spacing that fits this Word line at Montserrat 16pt.
+ for(const factor of [.60,.56,.52,.48,.44,.40,.36,.32,.28]){
+  let end=0;const trial=[];
+  for(let i=0;i<words.length;i++){
+   const w=words[i],prefix=(grouped.get(i)||[]).map(n=>'['+n+']').join(' ');
+   const width=measure((prefix?prefix+' ':'')+w.text,'16pt Montserrat');
+   const px=Math.max(w.x*factor, end?end+12:0);
+   trial.push({text:w.text, prefix,px:Math.round(px),sx:w.x,wordX:px+(prefix?measure(prefix+' ','bold 16pt Montserrat'):0)});
+   end=px+width;
+  }
+  output=trial;right=end;ratio=factor;if(right<=maxWidth)break;
+ }
+ if(right>maxWidth){ // The image has too much text for one 16pt A4 line. Flag rather than shrink the font.
+  source._overflow=true;
+ }
+ const markers=output.map(w=>({x:w.sx,y:w.wordX}));
+ function mapX(x){if(!markers.length)return x*ratio;let i=0;while(i+1<markers.length&&markers[i+1].x<=x)i++;
+  const a=markers[i],b=markers[i+1];if(b&&b.x>a.x){const t=(x-a.x)/(b.x-a.x);return a.y+(b.y-a.y)*t;}
+  if(i>0){const prev=markers[i-1];if(a.x>prev.x)return a.y+(x-a.x)*(a.y-prev.y)/(a.x-prev.x);}
+  return a.y+(x-a.x)*ratio;
+ }
+ const notes=(source.notes||[]).map(n=>({text:cleanToken(n.text),x:Math.round(clamp(mapX(clampX(n.x)),0,600))})).filter(n=>n.text).sort((a,b)=>a.x-b.x).slice(0,80);
+ let noteEnd=0;for(const n of notes){n.x=Math.round(Math.max(n.x,noteEnd?noteEnd+9:0));noteEnd=n.x+measure(n.text,'italic 12pt Montserrat');}
+ const text=words.map((w,i)=>(grouped.get(i)||[]).map(n=>'['+n+']').join(' ')+(grouped.has(i)?' ':'')+w.text).join(' ');
+ return {type:'lyric',pattern:+$('pattern').value||0,text,notes,positionedWords:output.map(({text,prefix,px})=>({text,prefix,px})),overflow:!!source._overflow};
+}
+// A4 at Montserrat 16pt cannot always hold all beats from a wide source image.
+// Split long screenshot lines at a beat boundary and keep chords/notes on their respective pair of lines.
+function splitSourceByNotes(raw){
+ const allWords=(raw.words||[]).filter(w=>cleanToken(w.text)).sort((a,b)=>+a.x-+b.x);
+ const allNotes=(raw.notes||[]).filter(n=>cleanToken(n.text)).sort((a,b)=>+a.x-+b.x);
+ const allChords=(raw.chords||[]).filter(c=>cleanChord(c.name));
+ if(allNotes.length<=6)return [raw];
+ const parts=[];let words=allWords,notes=allNotes,chords=allChords;
+ while(notes.length>6&&words.length>1){
+  let cut=(clampX(notes[5].x)+clampX(notes[6].x))/2;
+  let split=words.findIndex(w=>clampX(w.x)>=cut);
+  if(split<=0||split>=words.length){split=Math.max(1,Math.min(words.length-1,Math.floor(words.length*6/notes.length)));cut=(clampX(words[split-1].x)+clampX(words[split].x))/2;}
+  const left={words:words.slice(0,split),notes:notes.filter(n=>clampX(n.x)<cut),chords:chords.filter(c=>(+c.beforeWord||0)<split)};
+  if(!left.words.length||!left.notes.length)break;
+  parts.push(left);
+  const shift=Math.max(0,clampX(words[split].x)-55);
+  words=words.slice(split).map(w=>({...w,x:clampX(w.x)-shift}));
+  notes=notes.filter(n=>clampX(n.x)>=cut).map(n=>({...n,x:clampX(n.x)-shift}));
+  chords=chords.filter(c=>(+c.beforeWord||0)>=split).map(c=>({...c,beforeWord:(+c.beforeWord||0)-split,x:clampX(c.x)-shift}));
+ }
+ if(words.length)parts.push({words,notes,chords});
+ return parts;
+}
+function applyAnalysis(data){
+ const mode=$('importMode').value,converted=[],part=+$('pattern').value||0;
+ for(const entry of data.rows||[]){for(const chunk of splitSourceByNotes(entry)){const line=layoutTranscription(chunk);if(line){line.pattern=part;converted.push(line);}}}
+ if(!converted.length)throw new Error('Không tìm thấy dòng lời hợp lệ trong phản hồi AI.');
+ if(mode==='append'&&rows.length){rows.push(...converted)}else{rows=[{type:'section',pattern:part},...converted]}
+ $('lyrics').value=rows.map(r=>r.type==='section'?'@'+(r.pattern+1):r.text).join('\n');
+ selected=null;render();
+ if(converted.some(r=>r.overflow))imageMessage('Một số dòng quá dài với A4 / 16pt. Hãy tách dòng khi chỉnh sửa.','error');
+ return converted.length;
+}
+function init(){
+ fillRhythms();$('zoom').onchange=setPageScale;
+ $('apply').onclick=()=>sourceToRows(true);
+ $('clearSong').onclick=()=>{if(rows.length||$('lyrics').value.trim()||$('title').value||$('author').value||$('tone').value){if(!confirm('Tạo bài mới và xóa nội dung bài hát đang mở?'))return;}for(const k of ['title','author','tone','lyrics'])$(k).value='';rows=[];selected=null;render();recordHistory();setStatus('Đã tạo trang bài hát trống. Chọn ảnh và nhận dạng để nhập lời.');};
+ $('rhythm').onchange=()=>{fillPatterns();rows.forEach(r=>{if(r.type==='section')r.pattern=Math.min(r.pattern,library[$('rhythm').value].length-1)});render();recordHistory();};
+ $('pattern').onchange=()=>{if(rows[0]?.type==='section')rows[0].pattern=+$('pattern').value;render();recordHistory();};
+ ['title','author','tone'].forEach(k=>$(k).addEventListener('input',()=>{render();recordHistory('field:'+k);}));
+ $('lyrics').addEventListener('input',()=>recordHistory('field:lyrics'));
+ $('guides').onclick=()=>{showGuides=!showGuides;$('guides').textContent=showGuides?'Ẩn đường căn':'Hiện đường căn';render();};
+ $('addPattern').onclick=()=>{const val=$('custom').value.trim();if(!val)return;library[$('rhythm').value].push(val);fillPatterns();$('pattern').value=String(library[$('rhythm').value].length-1);$('custom').value='';render();recordHistory();};
+ $('suggest').onclick=suggestNotes;
+ $('addNote').onclick=()=>{const row=selected?.row??rows.findIndex(x=>x.type==='lyric');if(row>=0)addNoteAt(row,selected?rows[row].notes[selected.note].x+40:10);};
+ $('updateNote').onclick=()=>{if(!selected)return;const n=rows[selected.row].notes[selected.note];n.text=$('noteValue').value.trim()||n.text;n.x=Math.round(clamp(Number($('noteX').value)||0,0,590));render();recordHistory();};
+ $('deleteNote').onclick=deleteSelected;
+ $('save').onclick=()=>{try{localStorage.setItem('guitar-song-editor-template-v2',JSON.stringify(snapshot()));setStatus('Đã lưu bản nháp trên trình duyệt này.');}catch(err){alert('Không lưu được bản nháp: '+err.message);}};
+ $('load').onclick=()=>{try{const st=localStorage.getItem('guitar-song-editor-template-v2');if(st){restore(JSON.parse(st));recordHistory();setStatus('Đã mở bản nháp.');}else alert('Chưa có bản nháp.');}catch(err){alert('Không mở được bản nháp: '+err.message);}};
+ $('export').onclick=exportDOCX;$('print').onclick=()=>window.print();
+ setupImageAnalyzer();
+ $('undo').onclick=()=>moveInHistory(-1);$('redo').onclick=()=>moveInHistory(1);
+ document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&e.key.toLowerCase()==='z'){
+   e.preventDefault();moveInHistory(e.shiftKey?1:-1);return;
+  }
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;
+  if(e.key==='Delete'||e.key==='Backspace'){if(selected){e.preventDefault();deleteSelected();}}
+  else if((e.key==='ArrowLeft'||e.key==='ArrowRight')&&selected){e.preventDefault();const n=rows[selected.row].notes[selected.note];n.x=clamp(n.x+(e.key==='ArrowRight'?1:-1)*(e.shiftKey?10:1),0,590);render();$('noteX').value=n.x;recordHistory('move-note:'+selected.row+':'+selected.note);}
+ });
+ // Start with a completely empty song. Do not insert lyrics or metadata from the reference DOCX.
+ for(const k of ['title','author','tone','lyrics'])$(k).value='';rows=[];selected=null;render();recordHistory();
+ document.fonts?.ready.then(render).catch(()=>{});window.addEventListener('resize',setPageScale);
+}
+function deleteSelected(){if(!selected)return;const {row,note}=selected;rows[row].notes.splice(note,1);selected=null;render();recordHistory();setStatus('Đã xóa ký hiệu.');}
+init();
+</script>
+</body>
+</html>
