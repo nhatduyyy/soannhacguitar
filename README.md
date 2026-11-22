@@ -1,5 +1,7 @@
 # Guitar Song Editor — V3 (để trống khi tạo bài mới)
 
+Kích hoạt Gemini AI
+
 Website soạn giáo án guitar theo **form BALLAD_24.docx**: khổ A4, font Montserrat; tiêu đề 20 pt, lời 16 pt, hợp âm `[Am]` màu đỏ đậm, ký hiệu cách chơi 12 pt nghiêng. Form và thư viện gồm Valse, Ballad, Boston, Bolero, Slowrock.
 
 ## Quy trình sử dụng
