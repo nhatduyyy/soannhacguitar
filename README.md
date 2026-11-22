@@ -22,3 +22,5 @@ Website soạn giáo án guitar theo **form BALLAD_24.docx**: khổ A4, font Mon
 4. Deploy lại. Nút nhận dạng sẽ gọi endpoint `/api/analyze` phía máy chủ để gửi ảnh cho Gemini. Có thể thêm secret/biến `GEMINI_MODEL` để chọn model API mà tài khoản cho phép. Mặc định trong mã đang là `gemini-3.6-flash`; nếu không khả dụng, hãy cấu hình model khác được API key hỗ trợ.
 
 **Giới hạn:** AI đọc từ ảnh không đảm bảo 100% đúng tiếng Việt, hợp âm, nhịp và vị trí ký hiệu. Kiểm tra ảnh đối chiếu trước khi xuất. Nếu mở riêng `index.html` trên máy mà không triển khai function và API key, bạn vẫn soạn thủ công nhưng nút AI không hoạt động.
+
+Cập nhật cấu hình Gemini AI
