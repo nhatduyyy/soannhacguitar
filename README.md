@@ -24,3 +24,4 @@ Website soạn giáo án guitar theo **form BALLAD_24.docx**: khổ A4, font Mon
 **Giới hạn:** AI đọc từ ảnh không đảm bảo 100% đúng tiếng Việt, hợp âm, nhịp và vị trí ký hiệu. Kiểm tra ảnh đối chiếu trước khi xuất. Nếu mở riêng `index.html` trên máy mà không triển khai function và API key, bạn vẫn soạn thủ công nhưng nút AI không hoạt động.
 
 Cập nhật cấu hình Gemini AI
+Thử nghiệm Gemini 2.5 Flash Lite
